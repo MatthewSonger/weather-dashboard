@@ -154,3 +154,31 @@ function getWeatherData(latLon) {
             btnCreator();
         })
 }
+
+function btnCreator() {
+    btn2El.innerHTML = "";
+    var cityArray = JSON.parse(localStorage.getItem("searchHistory")) || [];
+    for (let i = 0; i < cityArray.length; i++) {
+        var cityButton = document.createElement("button");
+        cityButton.type = "button";
+        cityButton.innerHTML = cityArray[i];
+        cityButton.className = "btn btn-secondary"
+        cityButton.addEventListener("click", function cityButtonPress() {
+            getCityGeo(cityArray[i])
+            .then(function (latLon) {
+                //console.log('latLon: ', latLon);
+                return getWeatherData(latLon)
+            })
+
+        //clear old content
+        cityEl.value = "";
+        
+        })
+        btn2El.append(cityButton);
+    }
+}
+
+
+
+btnCreator();
+userFormEl.addEventListener("submit", formSubmitHandler);
