@@ -146,7 +146,7 @@ function getWeatherData(latLon) {
 
 
                 container.append(forecastDateEl, forecastIconEl, forecastTempEl, forecastWindEl, forecastHumidityEl);
-                container.setAttribute("style", "background-color: gray; margin: 5px");
+                container.setAttribute("style", "background-color: #32475B; margin: 5px");
                 container.classList.add("weather-text");
                 forecastWeatherContainer.classList.add("row");
                 forecastWeatherContainer.append(container);
@@ -176,7 +176,7 @@ function btnCreator() {
         })
         btn2El.append(cityButton);
     }
-}
+} 
 
 
 
