@@ -1,7 +1,8 @@
  # Weather Dashboard
 
+<img width="1440" alt="Screen Shot 2022-06-20 at 8 23 34 PM" src="https://user-images.githubusercontent.com/94155400/174697018-730541e3-df2f-4180-89e2-b35350739d52.png">
 
-  ## Table of Contents
+## Table of Contents
   * [Description](#description)
   * [Installation Instructions](#installation-instructions)
   * [Usage](#usage)
