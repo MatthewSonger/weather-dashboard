@@ -35,3 +35,33 @@ var formSubmitHandler = function (event) {
         alert("Please enter a city name")
     }
 };
+
+function getCityGeo(city) {
+    //find the latitude and longitude for the city
+    var apiUrlGeo = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=8d03dfd7dbf3df23ffe6a5d84a5e5242";
+    return fetch(apiUrlGeo)
+        .then(function (response) {
+            if (response.ok) {
+                return response.json()
+            } else {
+                alert("Error: city not found");
+            }
+        })
+        .then(function (data) {
+            //console.log('data: ', data);
+            forecastWeatherContainer.innerHTML = "";
+            var currentCity = data[0].name;
+            var todayDate = moment().format("MM/DD/YYYY");
+            var currentCityDateEl = document.createElement("h2")
+            currentCityDateEl.textContent = currentCity + " " + "(" + todayDate + ")";
+            currentWeatherContainer.textContent = "";
+            currentCityDateEl.classList.add("inline");
+            currentWeatherContainer.append(currentCityDateEl);
+
+            return {
+                lat: data[0].lat,
+                lon: data[0].lon
+            }
+
+        })
+}
